@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.surwing.service.BedLocalService" class="com.surwing.service.impl.BedLocalServiceImpl" />
+	<bean id="com.surwing.service.persistence.BedPersistence" class="com.surwing.service.persistence.BedPersistenceImpl" parent="basePersistence" />
+	<bean id="com.surwing.service.LocationLocalService" class="com.surwing.service.impl.LocationLocalServiceImpl" />
+	<bean id="com.surwing.service.persistence.LocationPersistence" class="com.surwing.service.persistence.LocationPersistenceImpl" parent="basePersistence" />
+	<bean id="com.surwing.service.NodeLocalService" class="com.surwing.service.impl.NodeLocalServiceImpl" />
+	<bean id="com.surwing.service.persistence.NodePersistence" class="com.surwing.service.persistence.NodePersistenceImpl" parent="basePersistence" />
+	<bean id="com.surwing.service.PatientLocalService" class="com.surwing.service.impl.PatientLocalServiceImpl" />
+	<bean id="com.surwing.service.persistence.PatientPersistence" class="com.surwing.service.persistence.PatientPersistenceImpl" parent="basePersistence" />
+	<bean id="com.surwing.service.SystemParameterLocalService" class="com.surwing.service.impl.SystemParameterLocalServiceImpl" />
+	<bean id="com.surwing.service.persistence.SystemParameterPersistence" class="com.surwing.service.persistence.SystemParameterPersistenceImpl" parent="basePersistence" />
+	<bean id="com.surwing.service.TagLocalService" class="com.surwing.service.impl.TagLocalServiceImpl" />
+	<bean id="com.surwing.service.persistence.TagPersistence" class="com.surwing.service.persistence.TagPersistenceImpl" parent="basePersistence" />
+	<bean id="com.surwing.service.TemperatureLocalService" class="com.surwing.service.impl.TemperatureLocalServiceImpl" />
+	<bean id="com.surwing.service.persistence.TemperaturePersistence" class="com.surwing.service.persistence.TemperaturePersistenceImpl" parent="basePersistence" />
+	<bean id="com.surwing.service.UserInfoLocalService" class="com.surwing.service.impl.UserInfoLocalServiceImpl" />
+	<bean id="com.surwing.service.persistence.UserInfoPersistence" class="com.surwing.service.persistence.UserInfoPersistenceImpl" parent="basePersistence" />
+</beans>

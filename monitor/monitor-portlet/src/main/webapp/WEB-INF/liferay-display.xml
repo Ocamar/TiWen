@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE display PUBLIC "-//Liferay//DTD Display 6.2.0//EN"
+        "http://www.liferay.com/dtd/liferay-display_6_2_0.dtd">
+
+<display>
+    <category name="category.monitor">
+        <category name="category.monitor.admin">
+            <!-- 病区管理 -->
+            <portlet id="1"/>
+            <!-- 基站管理 -->
+            <portlet id="2"/>
+            <!-- 基站监控 -->
+            <portlet id="3"/>
+            <!-- 标签监控 -->
+            <portlet id="4"/>
+            <!-- 用户管理 -->
+            <portlet id="5"/>
+            <!-- 床位管理 -->
+            <portlet id="6"/>
+            <!-- 标签管理 -->
+            <portlet id="9"/>
+            <!-- 参数配置 -->
+            <portlet id="10"/>
+            <!-- 获取所在病区名称 -->
+            <portlet id="11"/>
+        </category>
+        <category name="category.monitor.nurse">
+            <!-- 病人注册 -->
+            <portlet id="7"/>
+            <!-- 病人监控 -->
+            <portlet id="8"/>
+            <!-- 病人监控-视图模式 -->
+            <portlet id="12"/>
+        </category>
+    </category>
+</display>

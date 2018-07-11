@@ -1,0 +1,8 @@
+<div class="text">
+    #foreach ($nav_item in $nav_items)
+        <a href="$nav_item.getURL()" $nav_item.getTarget() #if ($nav_item.isSelected()) class="thisclass" #end>
+            $nav_item.getName()
+        </a>
+    #end
+    <a href="/c/portal/logout" style="float: right; background: red">退出</a>
+</div>

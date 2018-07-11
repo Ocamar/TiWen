@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.surwing.model.impl.BedModelImpl">
+		<attributes>
+			<id name="bedId" />
+			<basic name="companyId" />
+			<basic name="groupId" />
+			<basic name="locationId" />
+			<basic name="bedNo" />
+			<basic name="alias">
+				<column name="ALIAS_" />
+			</basic>
+			<basic name="patientId" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.surwing.model.impl.LocationModelImpl">
+		<attributes>
+			<id name="locationId" />
+			<basic name="companyId" />
+			<basic name="groupId" />
+			<basic name="locationNo" />
+			<basic name="locationName" />
+			<basic name="esbEnabled" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.surwing.model.impl.NodeModelImpl">
+		<attributes>
+			<id name="nodeId" />
+			<basic name="companyId" />
+			<basic name="groupId" />
+			<basic name="nodeNo" />
+			<basic name="locationId" />
+			<basic name="nodeType" />
+			<basic name="ip" />
+			<basic name="lastReceivedTime">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="lastTransmitTime">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="status" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.surwing.model.impl.PatientModelImpl">
+		<attributes>
+			<id name="patientId" />
+			<basic name="companyId" />
+			<basic name="groupId" />
+			<basic name="mrn" />
+			<basic name="name" />
+			<basic name="locationId" />
+			<basic name="bedId" />
+			<basic name="gender" />
+			<basic name="birthday">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="minTemperature" />
+			<basic name="maxTemperature" />
+			<basic name="tagNo" />
+			<basic name="temperature" />
+			<basic name="latestDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="temperatureIn8h" />
+			<basic name="highestDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="febrile" />
+			<basic name="alarmLevel" />
+			<basic name="discharge" />
+			<basic name="deleted" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.surwing.model.impl.SystemParameterModelImpl">
+		<attributes>
+			<id name="systemParameterId" />
+			<basic name="locationId" />
+			<basic name="key">
+				<column name="KEY_" />
+			</basic>
+			<basic name="value" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.surwing.model.impl.TagModelImpl">
+		<attributes>
+			<id name="tagId" />
+			<basic name="companyId" />
+			<basic name="groupId" />
+			<basic name="tagNo" />
+			<basic name="type">
+				<column name="TYPE_" />
+			</basic>
+			<basic name="nodeId" />
+			<basic name="locationId" />
+			<basic name="status" />
+			<basic name="patientId" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.surwing.model.impl.TemperatureModelImpl">
+		<attributes>
+			<id name="temperatureId" />
+			<basic name="patientId" />
+			<basic name="temperature" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.surwing.model.impl.UserInfoModelImpl">
+		<attributes>
+			<id name="userId" />
+			<basic name="locationId" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.surwing.model.impl.BedImpl" name="Bed">
+		<table name="M_Bed" />
+		<attributes />
+	</entity>
+	<entity class="com.surwing.model.impl.LocationImpl" name="Location">
+		<table name="M_Location" />
+		<attributes />
+	</entity>
+	<entity class="com.surwing.model.impl.NodeImpl" name="Node">
+		<table name="M_Node" />
+		<attributes />
+	</entity>
+	<entity class="com.surwing.model.impl.PatientImpl" name="Patient">
+		<table name="M_Patient" />
+		<attributes />
+	</entity>
+	<entity class="com.surwing.model.impl.SystemParameterImpl" name="SystemParameter">
+		<table name="M_SystemParameter" />
+		<attributes />
+	</entity>
+	<entity class="com.surwing.model.impl.TagImpl" name="Tag">
+		<table name="M_Tag" />
+		<attributes />
+	</entity>
+	<entity class="com.surwing.model.impl.TemperatureImpl" name="Temperature">
+		<table name="M_Temperature" />
+		<attributes />
+	</entity>
+	<entity class="com.surwing.model.impl.UserInfoImpl" name="UserInfo">
+		<table name="M_UserInfo" />
+		<attributes />
+	</entity>
+</entity-mappings>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.custom.i18n.resources" value="content.Language"/>
+    <constant name="struts.urlRenderer" value="liferay"/>
+    <constant name="struts.configuration.xml.reload" value="true"/>
+    <constant name="struts.i18n.reload" value="true"/>
+
+    <package name="location" extends="liferay-portlet-default" namespace="/location">
+        <action name="locationSearch" class="com.surwing.portlet.location.LocationSearchAction" method="input">
+            <param name="enableRowChecker">false</param>
+            <result name="input" type="freemarker">/ftl/admin/location/list.ftl</result>
+        </action>
+        <action name="add" class="com.surwing.portlet.location.LocationAddAction" method="input">
+            <result name="input" type="freemarker">/ftl/admin/location/add.ftl</result>
+        </action>
+        <action name="addSave" class="com.surwing.portlet.location.LocationAddAction" method="execute">
+            <result name="error" type="freemarker">/ftl/admin/location/add.ftl</result>
+        </action>
+        <action name="edit" class="com.surwing.portlet.location.LocationEditAction" method="input">
+            <result name="input" type="freemarker">/ftl/admin/location/edit.ftl</result>
+        </action>
+        <action name="editSave" class="com.surwing.portlet.location.LocationEditAction" method="execute">
+            <result name="error" type="freemarker">/ftl/admin/location/edit.ftl</result>
+        </action>
+        <action name="delete" class="com.surwing.portlet.location.LocationDeleteAction" method="execute">
+            <result name="error" type="redirectRenderPhaseAction">
+                <param name="parse">true</param>
+                <param name="actionName">locationSearch</param>
+                <param name="redirect">%{redirect}</param>
+            </result>
+        </action>
+    </package>
+
+    <package name="node" extends="liferay-portlet-default" namespace="/node">
+        <action name="nodeSearch" class="com.surwing.portlet.node.NodeSearchAction" method="input">
+            <param name="enableRowChecker">false</param>
+            <result name="input" type="freemarker">/ftl/admin/node/list.ftl</result>
+        </action>
+        <action name="add" class="com.surwing.portlet.node.NodeAddAction" method="input">
+            <result name="input" type="freemarker">/ftl/admin/node/add.ftl</result>
+        </action>
+        <action name="addSave" class="com.surwing.portlet.node.NodeAddAction" method="execute">
+            <result name="error" type="freemarker">/ftl/admin/node/add.ftl</result>
+        </action>
+        <action name="edit" class="com.surwing.portlet.node.NodeEditAction" method="input">
+            <result name="input" type="freemarker">/ftl/admin/node/edit.ftl</result>
+        </action>
+        <action name="editSave" class="com.surwing.portlet.node.NodeEditAction" method="execute">
+            <result name="error" type="redirectRenderPhaseAction">
+                <param name="parse">true</param>
+                <param name="actionName">edit</param>
+                <param name="nodeId">%{nodeId}</param>
+                <param name="redirect">%{redirect}</param>
+            </result>
+        </action>
+        <action name="delete" class="com.surwing.portlet.node.NodeDeleteAction" method="execute">
+        </action>
+    </package>
+
+    <package name="tag" extends="liferay-portlet-default" namespace="/tag">
+        <action name="tagSearch" class="com.surwing.portlet.tag.TagSearchAction" method="input">
+            <param name="enableRowChecker">false</param>
+            <result name="input" type="freemarker">/ftl/admin/tag/list.ftl</result>
+        </action>
+        <action name="register" class="com.surwing.portlet.tag.TagRegisterAction" method="input">
+            <result name="input" type="freemarker">/ftl/admin/tag/register.ftl</result>
+        </action>
+        <action name="add" class="com.surwing.portlet.tag.TagAddAction" method="input">
+            <result name="input" type="freemarker">/ftl/admin/tag/add.ftl</result>
+        </action>
+        <action name="addSave" class="com.surwing.portlet.tag.TagAddAction" method="execute">
+            <result name="input" type="freemarker">/ftl/admin/tag/add.ftl</result>
+        </action>
+        <action name="registerSave" class="com.surwing.portlet.tag.TagRegisterAction" method="execute">
+            <result name="error" type="freemarker">/ftl/admin/tag/register.ftl</result>
+        </action>
+        <action name="delete" class="com.surwing.portlet.tag.TagDeleteAction" method="execute">
+        </action>
+    </package>
+
+    <package name="user" extends="liferay-portlet-default" namespace="/user">
+        <action name="userSearch" class="com.surwing.portlet.user.UserSearchAction" method="input">
+            <param name="enableRowChecker">false</param>
+            <result name="input" type="freemarker">/ftl/admin/user/list.ftl</result>
+        </action>
+        <action name="addAdminRole" class="com.surwing.portlet.user.UserRoleEditAction" method="addAdminRole">
+        </action>
+        <action name="addNurseRole" class="com.surwing.portlet.user.UserRoleEditAction" method="addNurseRole">
+        </action>
+        <action name="addHeadNurseRole" class="com.surwing.portlet.user.UserRoleEditAction" method="addHeadNurseRole">
+        </action>
+        <action name="deleteAdminRole" class="com.surwing.portlet.user.UserRoleEditAction" method="deleteAdminRole">
+        </action>
+        <action name="deleteNurseRole" class="com.surwing.portlet.user.UserRoleEditAction" method="deleteNurseRole">
+        </action>
+        <action name="deleteHeadNurseRole" class="com.surwing.portlet.user.UserRoleEditAction" method="deleteHeadNurseRole">
+        </action>
+        <action name="addUser" class="com.surwing.portlet.user.UserAddAction" method="input">
+            <result name="input" type="freemarker">/ftl/admin/user/add.ftl</result>
+        </action>
+        <action name="addSaveUser" class="com.surwing.portlet.user.UserAddAction" method="execute">
+            <result name="error" type="freemarker">/ftl/admin/user/add.ftl</result>
+        </action>
+        <action name="changePassword" class="com.surwing.portlet.user.UserPasswordChangeAction" method="input">
+            <result name="input" type="freemarker">/ftl/admin/user/password.ftl</result>
+        </action>
+        <action name="changePasswordSave" class="com.surwing.portlet.user.UserPasswordChangeAction" method="execute">
+            <result name="error" type="freemarker">/ftl/admin/user/password.ftl</result>
+        </action>
+        <action name="editUser" class="com.surwing.portlet.user.UserInfoEditAction" method="input">
+            <result name="input" type="freemarker">/ftl/admin/user/edit.ftl</result>
+        </action>
+        <action name="editUserSave" class="com.surwing.portlet.user.UserInfoEditAction" method="execute">
+            <result name="error" type="freemarker">/ftl/admin/user/edit.ftl</result>
+        </action>
+        <action name="getUserLocationName" class="com.surwing.portlet.user.UserLocationNameAction" method="getUserLocationName">
+        </action>
+        <action name="deleteUser" class="com.surwing.portlet.user.UserDeleteAction" method="execute">
+        </action>
+    </package>
+
+    <package name="bed" extends="liferay-portlet-default" namespace="/bed">
+        <action name="bedSearch" class="com.surwing.portlet.bed.BedSearchAction" method="input">
+            <param name="enableRowChecker">false</param>
+            <result name="input" type="freemarker">/ftl/admin/bed/list.ftl</result>
+        </action>
+        <action name="add" class="com.surwing.portlet.bed.BedAddAction" method="input">
+            <result name="input" type="freemarker">/ftl/admin/bed/add.ftl</result>
+        </action>
+        <action name="addSave" class="com.surwing.portlet.bed.BedAddAction" method="execute">
+            <result name="error" type="freemarker">/ftl/admin/bed/add.ftl</result>
+        </action>
+        <action name="delete" class="com.surwing.portlet.bed.BedDeleteAction" method="execute">
+        </action>
+        <action name="edit" class="com.surwing.portlet.bed.BedEditAction" method="input">
+            <result name="input" type="freemarker">/ftl/admin/bed/edit.ftl</result>
+        </action>
+        <action name="editSave" class="com.surwing.portlet.bed.BedEditAction" method="execute">
+            <result name="input" type="freemarker">/ftl/admin/bed/edit.ftl</result>
+        </action>
+    </package>
+
+    <package name="patient" extends="liferay-portlet-default" namespace="/patient">
+        <action name="patientSearch" class="com.surwing.portlet.patient.PatientSearchAction" method="input">
+            <param name="enableRowChecker">false</param>
+            <result name="input" type="freemarker">/ftl/nurse/patient/list.ftl</result>
+        </action>
+        <action name="addPatientMrn" class="com.surwing.portlet.patient.PatientAddAction" method="input">
+            <result name="input" type="freemarker">/ftl/nurse/patient/add_patient_mrn.ftl</result>
+        </action>
+        <action name="addPatientMrnSave" class="com.surwing.portlet.patient.PatientAddAction" method="addPatientMrn">
+            <result name="success" type="freemarker">/ftl/nurse/patient/add_patient.ftl</result>
+        </action>
+        <action name="addPatientSave" class="com.surwing.portlet.patient.PatientAddAction" method="addPatient">
+            <result name="error" type="freemarker">/ftl/nurse/patient/add_patient.ftl</result>
+            <result name="success" type="redirectRenderPhaseAction">
+                <param name="parse">true</param>
+                <param name="actionName">patientSearch</param>
+                <param name="redirect">%{redirect}</param>
+            </result>
+        </action>
+        <action name="unRegister" class="com.surwing.portlet.patient.PatientTagUnRegisterAction">
+        </action>
+        <action name="discharge" class="com.surwing.portlet.patient.PatientDischargeAction" method="execute">
+        </action>
+        <action name="availableTagSearch" class="com.surwing.portlet.patient.AvailableTagSearchAction" method="input">
+            <param name="enableRowChecker">false</param>
+            <result name="input" type="freemarker">/ftl/nurse/patient/avaliable_tags.ftl</result>
+        </action>
+        <action name="delete" class="com.surwing.portlet.patient.PatientDeleteAction" method="execute">
+        </action>
+    </package>
+
+    <package name="patientStatus" extends="liferay-portlet-default" namespace="/patientStatus">
+        <action name="patientStatusSearch" class="com.surwing.portlet.patientstatus.PatientStatusSearchAction" method="input">
+            <param name="enableRowChecker">false</param>
+            <result name="input" type="freemarker">/ftl/nurse/patient_status/list.ftl</result>
+        </action>
+        <action name="showTempForToday" class="com.surwing.portlet.patientstatus.TemperatureChartForTodayDisplayAction" method="input">
+            <result name="input" type="freemarker">/ftl/nurse/patient_status/chart_today.ftl</result>
+        </action>
+        <action name="majorPatientStatusList" class="com.surwing.portlet.patientstatus.MajorPatientStatusListAction" method="input">
+            <result name="input" type="freemarker">/ftl/nurse/patient_status/major_patient_status.ftl</result>
+        </action>
+    </package>
+
+    <package name="systemParameter" extends="liferay-portlet-default" namespace="/systemParameter">
+        <action name="list" class="com.surwing.portlet.systemparameter.SystemParameterListAction" method="input">
+            <result name="input" type="freemarker">/ftl/admin/system_parameter/list.ftl</result>
+        </action>
+        <action name="edit" class="com.surwing.portlet.systemparameter.SystemParameterListAction" method="execute">
+        </action>
+    </package>
+</struts>

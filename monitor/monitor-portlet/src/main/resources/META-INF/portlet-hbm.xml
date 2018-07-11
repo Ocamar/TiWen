@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.surwing.model.Bed" />
+	<import class="com.surwing.model.Location" />
+	<import class="com.surwing.model.Node" />
+	<import class="com.surwing.model.Patient" />
+	<import class="com.surwing.model.SystemParameter" />
+	<import class="com.surwing.model.Tag" />
+	<import class="com.surwing.model.Temperature" />
+	<import class="com.surwing.model.UserInfo" />
+	<class name="com.surwing.model.impl.BedImpl" table="M_Bed">
+		<cache usage="read-write" />
+		<id name="bedId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="locationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="bedNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="alias" type="com.liferay.portal.dao.orm.hibernate.StringType" column="alias_" />
+		<property name="patientId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.surwing.model.impl.LocationImpl" table="M_Location">
+		<cache usage="read-write" />
+		<id name="locationId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="locationNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="locationName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="esbEnabled" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.surwing.model.impl.NodeImpl" table="M_Node">
+		<cache usage="read-write" />
+		<id name="nodeId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="nodeNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="locationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="nodeType" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="ip" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="lastReceivedTime" type="org.hibernate.type.TimestampType" />
+		<property name="lastTransmitTime" type="org.hibernate.type.TimestampType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.surwing.model.impl.PatientImpl" table="M_Patient">
+		<cache usage="read-write" />
+		<id name="patientId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="mrn" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="locationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="bedId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="gender" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="birthday" type="org.hibernate.type.TimestampType" />
+		<property name="minTemperature" type="org.hibernate.type.BigDecimalType" />
+		<property name="maxTemperature" type="org.hibernate.type.BigDecimalType" />
+		<property name="tagNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="temperature" type="org.hibernate.type.BigDecimalType" />
+		<property name="latestDate" type="org.hibernate.type.TimestampType" />
+		<property name="temperatureIn8h" type="org.hibernate.type.BigDecimalType" />
+		<property name="highestDate" type="org.hibernate.type.TimestampType" />
+		<property name="febrile" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="alarmLevel" type="org.hibernate.type.BigDecimalType" />
+		<property name="discharge" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="deleted" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.surwing.model.impl.SystemParameterImpl" table="M_SystemParameter">
+		<cache usage="read-write" />
+		<id name="systemParameterId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="locationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="key" type="com.liferay.portal.dao.orm.hibernate.StringType" column="key_" />
+		<property name="value" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.surwing.model.impl.TagImpl" table="M_Tag">
+		<cache usage="read-write" />
+		<id name="tagId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="tagNo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="type" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="type_" />
+		<property name="nodeId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="locationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="patientId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.surwing.model.impl.TemperatureImpl" table="M_Temperature">
+		<cache usage="read-write" />
+		<id name="temperatureId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="patientId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="temperature" type="org.hibernate.type.BigDecimalType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.surwing.model.impl.UserInfoImpl" table="M_UserInfo">
+		<cache usage="read-write" />
+		<id name="userId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="locationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+</hibernate-mapping>

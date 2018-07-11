@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.surwing.model.Bed">
+		<field name="bedId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="locationId" type="long" />
+		<field name="bedNo" type="String" />
+		<field name="alias" type="String" />
+		<field name="patientId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.surwing.model.Location">
+		<field name="locationId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="locationNo" type="String" />
+		<field name="locationName" type="String" />
+		<field name="esbEnabled" type="boolean" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.surwing.model.Node">
+		<field name="nodeId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="nodeNo" type="String" />
+		<field name="locationId" type="long" />
+		<field name="nodeType" type="int" />
+		<field name="ip" type="String" />
+		<field name="lastReceivedTime" type="Date" />
+		<field name="lastTransmitTime" type="Date" />
+		<field name="status" type="int" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.surwing.model.Patient">
+		<field name="patientId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="mrn" type="String" />
+		<field name="name" type="String" />
+		<field name="locationId" type="long" />
+		<field name="bedId" type="long" />
+		<field name="gender" type="int" />
+		<field name="birthday" type="Date" />
+		<field name="minTemperature" type="BigDecimal" />
+		<field name="maxTemperature" type="BigDecimal" />
+		<field name="tagNo" type="String" />
+		<field name="temperature" type="BigDecimal" />
+		<field name="latestDate" type="Date" />
+		<field name="temperatureIn8h" type="BigDecimal" />
+		<field name="highestDate" type="Date" />
+		<field name="febrile" type="boolean" />
+		<field name="alarmLevel" type="BigDecimal" />
+		<field name="discharge" type="boolean" />
+		<field name="deleted" type="boolean" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.surwing.model.SystemParameter">
+		<field name="systemParameterId" type="long" />
+		<field name="locationId" type="long" />
+		<field name="key" type="String" />
+		<field name="value" type="String" />
+	</model>
+	<model name="com.surwing.model.Tag">
+		<field name="tagId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="tagNo" type="String" />
+		<field name="type" type="int" />
+		<field name="nodeId" type="long" />
+		<field name="locationId" type="long" />
+		<field name="status" type="int" />
+		<field name="patientId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.surwing.model.Temperature">
+		<field name="temperatureId" type="long" />
+		<field name="patientId" type="long" />
+		<field name="temperature" type="BigDecimal" />
+		<field name="createDate" type="Date" />
+	</model>
+	<model name="com.surwing.model.UserInfo">
+		<field name="userId" type="long" />
+		<field name="locationId" type="long" />
+	</model>
+</model-hints>

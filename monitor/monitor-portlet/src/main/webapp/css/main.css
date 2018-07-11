@@ -1,0 +1,73 @@
+.textbig {
+    font-family: "微软雅黑 Light", "微软雅黑", Arial, "宋体";
+    font-size: 70px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.text {
+    font-family: "微软雅黑 Light", "微软雅黑", Arial, "宋体";
+    font-size: 30px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.blacktextbig {
+    font-family: "微软雅黑 Light", "微软雅黑", Arial, "宋体";
+    font-size: 70px;
+    color: #666666;
+    text-decoration: none;
+}
+
+.blacktext {
+    font-family: "微软雅黑 Light", "微软雅黑", Arial, "宋体";
+    font-size: 25px;
+    color: #666666;
+    text-decoration: none;
+}
+
+.redtext {
+    font-family: "微软雅黑 Light", "微软雅黑", Arial, "宋体";
+    font-size: 25px;
+    color: #ff6666;
+    text-decoration: none;
+}
+
+.bluetext {
+    font-family: "微软雅黑 Light", "微软雅黑", Arial, "宋体";
+    font-size: 25px;
+    color: #5477A0;
+    text-decoration: none;
+}
+
+.orangertext {
+    font-family: "微软雅黑 Light", "微软雅黑", Arial, "宋体";
+    font-size: 25px;
+    color: #AE5C1B;
+    text-decoration: none;
+}
+
+.greentext {
+    font-family: "微软雅黑 Light", "微软雅黑", Arial, "宋体";
+    font-size: 25px;
+    color: #47A16E;
+    text-decoration: none;
+}
+
+.yellowrtext {
+    font-family: "微软雅黑 Light", "微软雅黑", Arial, "宋体";
+    font-size: 25px;
+    color: #AB8337;
+    text-decoration: none;
+}
+
+.grayrtext {
+    font-family: "微软雅黑 Light", "微软雅黑", Arial, "宋体";
+    font-size: 25px;
+    color: #333333;
+    text-decoration: none;
+}
+
+.lines {
+    border: 2px solid #fff;
+}

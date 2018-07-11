@@ -1,0 +1,124 @@
+.text {
+    font-family: "微软雅黑", Arial, "宋体";
+    height: 40px;
+    line-height: 40px;
+    background-color: #dddddd;
+    padding: 10px;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.text a {
+    height: 20px;
+    line-height: 20px;
+    color: #000;
+    text-decoration: none;
+    padding: 7px 10px;
+    display: block;
+    float: left;
+    width: 100px;
+    font-weight: bold;
+    border: 3px solid #dddddd;
+}
+
+.text a:hover {
+    text-decoration: none;
+    background: #3598ff;
+    color: #FFF;
+    width: 100px;
+    font-weight: bold;
+    border: 3px solid #dddddd;
+}
+
+.text a.thisclass {
+    text-decoration: none;
+    background-color: #3598ff;
+    color: #FFF;
+    width: 100px;
+    font-weight: bold;
+    border: 3px solid #dddddd;
+}
+
+.oc_logo {
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.head-location {
+    float: left;
+    background-color: #0265CB;
+    width: 200px;
+    text-align: center;
+    font-size: 18px;
+    height: 30px;
+    padding-top: 8px;
+    color: white;
+}
+
+#inputname {
+    text-decoration: none;
+    height: 40px;
+    width: 313px;
+    border: 1px solid #b9b9b9;
+    background-image: url(/ocamar-w-theme/images/custom/login/namebut.jpg);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-color: #FFF;
+    font-family: "微软雅黑", Arial, "宋体";
+    font-size: 14px;
+    color: #000;
+    text-indent: 55px;
+    border-radius: 5px;
+}
+
+#inputpassword {
+    text-decoration: none;
+    height: 40px;
+    width: 313px;
+    border: 1px solid #b9b9b9;
+    background-image: url(/ocamar-w-theme/images/custom/login/passwordbut.jpg);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-color: #FFF;
+    font-family: "微软雅黑", Arial, "宋体";
+    font-size: 14px;
+    color: #000;
+    text-indent: 55px;
+    border-radius: 5px;
+}
+
+#login_button {
+    background: url(/ocamar-w-theme/images/custom/login/loginbut.jpg) no-repeat;
+    cursor: pointer;
+    border: none;
+    width: 315px;
+    height: 50px;
+}
+
+.login_text {
+    font-family: "微软雅黑", Arial, "宋体";
+    font-size: 14px;
+    color: #000;
+    text-decoration: none;
+}
+
+.aui .table thead th {
+    background-color: #4f81bc;
+    color: white;
+    font-weight: bold;
+}
+
+.aui .table .table-sort-liner a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.portlet-title {
+    background-color: #3598ff
+}

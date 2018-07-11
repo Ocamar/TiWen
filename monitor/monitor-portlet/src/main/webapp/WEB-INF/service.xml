@@ -1,0 +1,264 @@
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN"
+        "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+
+<service-builder package-path="com.surwing">
+    <author>zhaiyz</author>
+    <namespace>M</namespace>
+
+    <entity name="Location" local-service="true" remote-service="false">
+        <!-- PK fields -->
+        <column name="locationId" type="long" primary="true"/>
+
+        <!-- FK fields -->
+        <column name="companyId" type="long"/>
+        <column name="groupId" type="long"/>
+
+        <!-- Other fields -->
+        <!-- 病区编号 -->
+        <column name="locationNo" type="String"/>
+        <!-- 病区名称 -->
+        <column name="locationName" type="String"/>
+        <!-- 数据从ESB获取 -->
+        <column name="esbEnabled" type="boolean"/>
+
+        <!-- Audit fields -->
+        <column name="createDate" type="Date"/>
+        <column name="modifiedDate" type="Date"/>
+
+        <order by="desc">
+            <order-column name="locationId"/>
+        </order>
+
+        <finder name="C_G" return-type="Collection">
+            <finder-column name="companyId"/>
+            <finder-column name="groupId"/>
+        </finder>
+
+        <finder name="LocationNo_C_G" return-type="Location" unique="true">
+            <finder-column name="locationNo"/>
+            <finder-column name="companyId"/>
+            <finder-column name="groupId"/>
+        </finder>
+    </entity>
+
+    <entity name="Node" local-service="true" remote-service="false">
+        <!-- PK fields -->
+        <column name="nodeId" type="long" primary="true"/>
+
+        <!-- FK fields -->
+        <column name="companyId" type="long"/>
+        <column name="groupId" type="long"/>
+
+        <!-- Other fields -->
+        <!-- 基站编号 -->
+        <column name="nodeNo" type="String"/>
+        <!-- 所属病区 -->
+        <column name="locationId" type="long"/>
+        <!-- 基站类型
+            1: SmartNode820
+            2: SmartNode890/S
+            3: SmartNode826
+            4: SmartNode800
+        -->
+        <column name="nodeType" type="int"/>
+        <!-- 基站IP -->
+        <column name="ip" type="String"/>
+        <!-- 最后通信时间 -->
+        <column name="lastReceivedTime" type="Date"/>
+        <!-- 最后传送消息时间 -->
+        <column name="lastTransmitTime" type="Date"/>
+        <!-- 状态
+            1: 从未进行过通信
+            2: 正常
+            3: 超过40分钟没有通信
+        -->
+        <column name="status" type="int"/>
+
+        <!-- Audit fields -->
+        <column name="createDate" type="Date"/>
+        <column name="modifiedDate" type="Date"/>
+
+        <order by="desc">
+            <order-column name="nodeId"/>
+        </order>
+
+        <finder name="NodeNo" return-type="Node" unique="true">
+            <finder-column name="nodeNo"/>
+        </finder>
+
+        <finder name="LocationId" return-type="Collection">
+            <finder-column name="locationId"/>
+        </finder>
+    </entity>
+
+    <entity name="Tag" local-service="true" remote-service="false">
+        <!-- PK fields -->
+        <column name="tagId" type="long" primary="true"/>
+
+        <!-- FK fields -->
+        <column name="companyId" type="long"/>
+        <column name="groupId" type="long"/>
+
+        <!-- 标签编号 -->
+        <column name="tagNo" type="String"/>
+        <!-- 类型
+            1: ThermoSENSOR-II
+        -->
+        <column name="type" type="int"/>
+        <!-- 所属基站 -->
+        <column name="nodeId" type="long"/>
+        <!-- 所属病区 -->
+        <column name="locationId" type="long"/>
+        <!-- 状态
+            1: 正常
+            2: 低电量
+        -->
+        <column name="status" type="int"/>
+        <!-- 关联病人 -->
+        <column name="patientId" type="long"/>
+
+        <!-- Audit fields -->
+        <column name="createDate" type="Date"/>
+        <column name="modifiedDate" type="Date"/>
+
+        <finder name="TagNo" return-type="Tag" unique="true">
+            <finder-column name="tagNo"/>
+        </finder>
+    </entity>
+
+    <entity name="UserInfo" local-service="true" remote-service="false">
+        <column name="userId" type="long" primary="true"/>
+
+        <!-- 用户默认病区 -->
+        <column name="locationId" type="long"/>
+    </entity>
+
+    <entity name="Bed" local-service="true" remote-service="false">
+        <!-- PK fields -->
+        <column name="bedId" type="long" primary="true"/>
+
+        <!-- FK fields -->
+        <column name="companyId" type="long"/>
+        <column name="groupId" type="long"/>
+
+        <!-- 病区主键 -->
+        <column name="locationId" type="long"/>
+
+        <!-- 床位编号 -->
+        <column name="bedNo" type="String"/>
+
+        <!-- 别称 -->
+        <column name="alias" type="String"/>
+
+        <!-- 关联患者 -->
+        <column name="patientId" type="long"/>
+
+        <!-- Audit fields -->
+        <column name="createDate" type="Date"/>
+        <column name="modifiedDate" type="Date"/>
+
+        <finder name="LocationId" return-type="Collection">
+            <finder-column name="locationId"/>
+        </finder>
+
+        <finder name="LocationIdAndBedNo" return-type="Bed">
+            <finder-column name="locationId"/>
+            <finder-column name="bedNo"/>
+        </finder>
+    </entity>
+
+    <entity name="Patient" local-service="true" remote-service="false">
+        <!-- PK fields -->
+        <column name="patientId" type="long" primary="true"/>
+
+        <!-- FK fields -->
+        <column name="companyId" type="long"/>
+        <column name="groupId" type="long"/>
+
+        <!-- 住院号 -->
+        <column name="mrn" type="String"/>
+        <!-- 姓名 -->
+        <column name="name" type="String"/>
+        <!-- 病区 -->
+        <column name="locationId" type="long"/>
+        <!-- 床位 -->
+        <column name="bedId" type="long"/>
+        <!-- 性别，0：男；1：女 -->
+        <column name="gender" type="int"/>
+        <!-- 出生年月 -->
+        <column name="birthday" type="Date"/>
+        <!-- 体温区间最小值 -->
+        <column name="minTemperature" type="BigDecimal"/>
+        <!-- 体温区间最大值 -->
+        <column name="maxTemperature" type="BigDecimal"/>
+        <!-- 关联标签 -->
+        <column name="tagNo" type="String"/>
+        <!-- 最新体温 -->
+        <column name="temperature" type="BigDecimal"/>
+        <!-- 最新体温时间 -->
+        <column name="latestDate" type="Date"/>
+        <!-- 8小时内最高体温 -->
+        <column name="temperatureIn8h" type="BigDecimal"/>
+        <!-- 8小时内最高体温时间 -->
+        <column name="highestDate" type="Date"/>
+        <!-- 是否正常 -->
+        <column name="febrile" type="boolean"/>
+        <!-- 预警级别 -->
+        <column name="alarmLevel" type="BigDecimal"/>
+        <!-- 是否在住院 -->
+        <column name="discharge" type="boolean"/>
+        <!-- 是否删除 -->
+        <column name="deleted" type="boolean"/>
+
+        <!-- Audit fields -->
+        <column name="createDate" type="Date"/>
+        <column name="modifiedDate" type="Date"/>
+
+        <finder name="Mrn" return-type="Patient" unique="true">
+            <finder-column name="mrn"/>
+        </finder>
+        <finder name="Febrile" return-type="Collection">
+            <finder-column name="febrile"/>
+            <finder-column name="discharge"/>
+            <finder-column name="deleted"/>
+        </finder>
+    </entity>
+
+    <entity name="Temperature" local-service="true" remote-service="false">
+        <!-- PK fields -->
+        <column name="temperatureId" type="long" primary="true"/>
+
+        <!-- 关联病人 -->
+        <column name="patientId" type="long"/>
+        <!-- 采集到的温度 -->
+        <column name="temperature" type="BigDecimal"/>
+
+        <!-- Audit fields -->
+        <column name="createDate" type="Date"/>
+
+        <order by="desc">
+            <order-column name="temperatureId"/>
+        </order>
+    </entity>
+
+    <entity name="SystemParameter" local-service="true" remote-service="false">
+        <!-- PK fields -->
+        <column name="systemParameterId" type="long" primary="true"/>
+        <!-- 所属病区 -->
+        <column name="locationId" type="long"/>
+        <!-- 参数键 -->
+        <column name="key" type="String"/>
+        <!-- 参数值 -->
+        <column name="value" type="String"/>
+
+        <finder name="LocationIdAndKey" return-type="SystemParameter" unique="true">
+            <finder-column name="locationId"/>
+            <finder-column name="key"/>
+        </finder>
+    </entity>
+
+    <exceptions>
+        <exception>Monitor</exception>
+    </exceptions>
+
+</service-builder>
